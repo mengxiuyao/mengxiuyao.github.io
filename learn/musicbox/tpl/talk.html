@@ -1,0 +1,39 @@
+    <div id="main" ng-controller="TalkCtrl">
+        <div class="banner bg"></div>
+        <div class="talk-container">
+            <div class="talk-content">
+                <div class="box-left">
+                    <p class="emotion">最新心情</p>
+                    <ul>
+                        <li class="talk-music-pic" ng-repeat="music in lastMood |
+                        offset: currentPage*itemsPerPage |
+                        limitTo: itemsPerPage">
+                            <img ng-src="{{music.src}}" width="170" height="100">
+                            <p><span class="music-name">{{music.name}}</span>-{{music.singer}}</p>
+                            <div>
+                                <span class="icon icon-play" ng-class="{'icon-pause':musicPlay.state && music.id == musicPlay.music.id}" ng-click="musicPlay.nextPlay(music)"></span>
+                                <span class="icon icon-plus"></span>
+                                <span class="icon icon-love"></span>
+                                <span class="icon icon-download"><a href="{{music.url}}"></a></span>
+                            </div>
+                    </ul>
+                    <div class="paging">
+                        <pagination currentPage="0" itemsPerPage="6" itemsList="lastMood" pageList="3"></pagination>
+                    </div>
+                </div>
+                <div class="box-right">
+                    <p class="emotion">最新音乐</p>
+                    <ul ng-repeat="music in lastMusic | limitTo: 3">
+                        <li class="pic-hot" ng-click="musicPlay.nextPlay(music)">
+                            <img ng-src="{{music.src}}" width="120" height="100">
+                            <div class="hot-song">
+                                <p class="music-name">{{music.name}}</p>
+                                <p>{{music.singer}}</p>
+                                <p class="hot-number">被说{{music.searchtimes}}次</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>

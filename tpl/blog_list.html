@@ -1,0 +1,62 @@
+<main id="content" class="content col-lg-8" role="main" ng-controller="BlogListCtrl">
+
+    <div class="extra-pagination inner">
+        <nav class="pagination" role="navigation">
+            <a href class="newer-posts"
+               ng-hide="prevPageDisabled()"
+               ng-click="prevPage()">&larr; Newer Posts
+            </a>
+            <span class="page-number">Page {{currentPage }} of {{ pageCount() }}</span>
+            <a href class="older-posts"
+               ng-hide="true"
+               ng-click="nextPage()">Older Posts &rarr;
+            </a>
+        </nav>
+    </div>
+
+    <article class="" ng-repeat="blog in blog_list|
+            orderBy: '-id' |
+            offset: currentPage*itemsPerPage |
+            limitTo: itemsPerPage">
+        <header class="post-header">
+            <h2 class="post-title">
+                <a href="#!/{{blog.slug}}">{{blog.title}}</a>
+            </h2>
+        </header>
+        <section class="post-excerpt">
+            <p>
+                {{blog.summary}}
+                <a class="read-more" href="#!/{{blog.slug}}">&raquo;</a>
+            </p>
+        </section>
+        <footer class="post-meta">
+            <img class="author-thumb" ng-src="{{blog.author.avatar_url}}"
+                 alt="{{blog.author.name}}" nopin="nopin"/>
+            <a href="#!/author/{{blog.author.slug}}">{{blog.author.name}}</a>
+
+            <span ng-show="blog.tags.length>0" class="post-date">标签:</span>
+            <span ng-repeat="tag in blog.tags">
+                <a href="#!/tag/{{tag}}">{{tag}}</a>&nbsp;
+            </span>
+
+            <span class="post-date">分类:</span>
+
+            <a href="#!/category/{{blog.category}}">{{blog.category}}</a>&nbsp;
+
+            <time class="post-date" datetime="2014-09-02">{{blog.post_date}}</time>
+        </footer>
+    </article>
+
+    <nav class="pagination" role="navigation">
+        <a href class="newer-posts"
+           ng-hide="prevPageDisabled()"
+           ng-click="prevPage()">&larr; 前一页
+        </a>
+        <span class="page-number">第 {{currentPage + 1}}/{{ pageCount() }} 页</span>
+        <a href class="older-posts"
+           ng-hide="nextPageDisabled()"
+           ng-click="nextPage()">后一页 &rarr;
+        </a>
+    </nav>
+
+</main>

@@ -1,0 +1,189 @@
+'use strict';
+var app = angular.module('app', [
+    'app.controllers',
+    'pagination.directives',
+    'pagination.filters'
+    ]);
+//Controllers
+angular.module('app.controllers', []);
+app.controller('AppCtrl', ['$scope', function ($scope){
+
+    $scope.musicEmotion = [
+        {
+            'num': '一',
+            'name': '红尘客栈'
+        },
+
+        {
+            'num': '二',
+            'name': '红尘客栈'
+        },
+
+        {
+            'num': '三',
+            'name': '红尘客栈'
+        },
+
+        {
+            'num': '四',
+            'name': '红尘客栈'
+        },
+
+        {
+            'num': '五',
+            'name': '红尘客栈'
+        },
+
+        {
+            'num': '六',
+            'name': '红尘客栈'
+        },
+
+        {
+            'num': '七',
+            'name': '红尘客栈'
+        },
+
+        {
+            'num': '八',
+            'name': '红尘客栈'
+        },
+
+        {
+            'num': '九',
+            'name': '红尘客栈'
+        },
+
+        {
+            'num': '十',
+            'name': '红尘客栈'
+        },
+
+        {
+            'num': '十一',
+            'name': '红尘客栈'
+        },
+
+        {
+            'num': '十二',
+            'name': '红尘客栈'
+        },
+
+        {
+            'num': '十三',
+            'name': '红尘客栈'
+        },
+
+        {
+            'num': '十四',
+            'name': '红尘客栈'
+        }
+    ];
+}]);
+
+//Directives
+angular.module('pagination.directives', []);
+app.directive('pagination', function (){
+    return {
+        restrict: 'AE',
+        replace: true,
+        template: '\
+            <div>\
+                <span ng-click="jumpHead()">首页</span> \
+                <span ng-click="prevPage()" ng-disabled="prevPageDisabled()">上一页</span>\
+                <sapn ng-hide="prevPageDisabled() || (currentNum+1<=1)">...</sapn> \
+                <span ng-repeat="num in number | \
+                offset: currentNum*pageList | \
+                        limitTo: pageList" \
+                        ng-click="jumpPage(num)" \
+                        ng-class="{numactive: currentPage+1 == num}">{{num}}</span> \
+                <sapn ng-hide="nextPageDisabled() || (total<=pageList)">...</sapn> \
+                <span ng-click="nextPage()" ng-disabled="nextPageDisabled()">下一页</span>\
+                <span ng-click="jumpEnd()">尾页</span> \
+            </div>',
+        link:function (scope, element, attrs){
+
+            scope.currentPage = attrs.currentpage;
+            scope.itemsPerPage = attrs.itemsperpage;
+            scope.itemsList = attrs.itemslist;
+            scope.pageList = attrs.pagelist;
+
+            scope.itemsList = scope.$eval(scope.itemsList);
+
+            scope.pageCount = function () {
+                if (scope.itemsList) {
+                    return Math.ceil(scope.itemsList.length / scope.itemsPerPage);
+                } else {
+                    return 1;
+                }
+            };
+            scope.total = scope.pageCount();
+
+            scope.number = [];
+            for(var i=0; i<scope.total; i++){
+                scope.number.push(i+1);
+            };
+
+            scope.currentNum = 0;
+            scope.jumpPageList = function (){
+                scope.currentNum = parseInt(scope.currentPage/scope.pageList);
+            };
+
+            scope.jumpPage = function (num){
+                scope.currentPage = num -1;
+                scope.jumpPageList();
+            };
+
+            scope.jumpHead = function (){
+                scope.currentPage = 0;
+                scope.jumpPageList();
+            }
+
+            scope.jumpEnd = function (){
+                scope.currentPage = scope.total-1;
+                scope.jumpPageList();
+            }
+
+            scope.prevPage = function () {
+                if(scope.prevPageDisabled()){
+                    return;
+                }
+                if (scope.currentPage > 0) {
+                    scope.currentPage--;
+                }
+                scope.jumpPageList();
+            };
+
+            scope.prevPageDisabled = function () {
+                return scope.currentPage +1 == 1;
+            };
+
+            scope.nextPage = function () {
+                if(scope.nextPageDisabled()){
+                    return;
+                }
+                if (scope.currentPage < scope.pageCount()) {
+                    scope.currentPage++;
+                }
+                scope.jumpPageList();
+            };
+
+            scope.nextPageDisabled = function () {
+                return (scope.currentPage +1) == scope.total;
+            };
+        }
+    }
+});
+
+//Filters
+angular.module('pagination.filters', []);
+app.filter('offset', function () {
+    return function (input, start) {
+        if (input) {
+            start = parseInt(start, 10);
+            return input.slice(start);
+        } else {
+            return [];
+        }
+    };
+});

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html ng-app="music" lang="zh-CN" xmlns:html5="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>SUNNY RADIO</title>
+	<meta name="Keywords" content="sunny radio">
+	<meta name="Description" content="合肥工业大学-工大学子音乐台">
+
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body ng-controller="MusicCtrl">
+	<audio id="audio" preload ng-src="{{musicPlay.music.url}}"></audio>
+	<div id="header">
+		<div class="nav">
+			<ul class="site-nav">
+				<li>
+					<a ng-click="boxshow=true">作品上传</a>
+				</li>
+				<li>
+					<a href="fm/SunnyRadio.zip">客户端</a>
+				</li>
+				<li>
+					<a href="#!/talk">音乐心情</a>
+				</li>
+				<li>
+					<a href="#!/play">正在播放</a>
+				</li>
+				<li id="logo-x">
+					<a href="#!/"></a>
+				</li>
+				<li>
+					<a href="#!/">点歌</a>
+				</li>
+				<li>
+					<a href="#!/rank">风云榜</a>
+				</li>
+				<li>
+					<a href="#!/">登陆/注册</a>
+				</li>
+			</ul>
+			<div class="search-container">
+				<form class="site-search" ng-submit="search()">
+					<input type="search" placeholder="找到好音乐"class="search-input" >
+					<input type="submit" class="submit-input">
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- upload music -->
+	<div class="upload" ng-controller="UploadCtrl" ng-class="{'upload-show': boxshow}">
+		<div class="close" ng-click="boxshow=false"></div>
+		<form name="musicUpload" class="up-form" ng-submit="upload(music)">
+			<div class="upload-box">
+				<div class="music-box music-bg">
+					<!-- <p>20%</p> -->
+					<p class="up-text">上传歌曲</p>
+					<!-- <p class="up-text">上传中...</p> -->
+					<input type="file" accept="audio/*" class="up-file" onchange="angular.element(this).scope().change(this)">
+				</div>
+				<div class="music-box thumb-box">
+					<!-- <p>20%</p> -->
+					<p class="up-text">上传封面</p>
+					<!-- <p class="up-text">上传中...</p> -->
+					<input type="file" accept="image/*" class="up-file" onchange="angular.element(this).scope().change(this)">
+				</div>
+			</div>
+			<input type="text" class="up-name" ng-model="music.name" placeholder="歌名"/ required>
+			<input type="text" class="up-songer" ng-model="music.songer" placeholder="歌手"/ required>
+			<select class="up-category" ng-options="category.cate for category in categorys" ng-model="music.category" required>
+				<option value="">选择歌曲分类</option>
+			</select>
+			<button type="submit" class="up-btn">提 交</button>
+		</form>
+	</div>
+
+	<div ng-view></div>
+
+	<div id="footer">
+		<div class="footer-logo"></div>
+		<div class="footer-container">
+			<div class="footer-msg">
+				<p>CopyRight©2006-2014大学生发展网络教育中心 All rights reserved.</p>
+				<p>合肥工业大学学工部（处）大学生网络教育发展中心制作与维护.</p>
+				<p>本站部分节目来源于互联网，若侵犯了您的版权，请与我们联系，我们将会于二十四小时内删除</p>
+			</div>
+			<div class="footer-links">
+				<a href="#">[作品上传]</a>
+				<a href="http://online.hfut.edu.cn/index/jsb" target="_blank">[关于我们]</a>
+				<a href="http://wpa.qq.com/msgrd?v=3&uin=84631561&site=qq&menu=yes">[联系我们]</a>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/libs/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="js/libs/angular-1.2.28.js"></script>
+	<script type="text/javascript" src="js/libs/angular-route.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/controllers.js"></script>
+	<script type="text/javascript" src="js/services.js"></script>
+	<script type="text/javascript" src="js/directives.js"></script>
+	<script type="text/javascript" src="js/filters.js"></script>
+</body>
+</html>

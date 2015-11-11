@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zn">
+<head>
+    <meta charset="UTF-8">
+    <title>Image adaptive</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <style>
+        .content{
+            width:640px;
+            height:640px;
+            margin:0 auto;
+            background-color: #AFAAAA;
+        }
+        .box{
+            float:left;
+            width:200px;
+            height:200px;
+            background-color:#38CE65;
+            display:inline-block;
+            margin:10px 0 0 10px;
+            justify-content: center;        /*子元素水平居中*/
+            align-items: center;            /*子元素垂直居中*/
+            display:-webkit-flex;
+        }
+    </style>
+</head>
+<body>
+	<div class="content">
+        <div id="box" class="box">
+            <img src="green.jpg" alt="">
+        </div>
+        <div class="box">
+            <img src="dot.jpg" alt="">
+        </div>
+        <div class="box">
+            <img src="biaobin.jpg" alt="">
+        </div>
+
+        <div class="box">
+            <img src="font.gif" alt="">
+        </div>
+        <div class="box">
+            <img src="blue.jpg" alt="">
+        </div>
+        <div class="box">
+            <img src="green.jpg" alt="">
+        </div>
+
+        <div class="box">
+            <img src="biaobin.jpg" alt="">
+        </div>
+        <div class="box">
+            <img src="narrow.png" alt="">
+        </div>
+        <div class="box">
+            <img src="blue.jpg" alt="">
+        </div>
+    </div>
+    <script>
+        var imgList = document.getElementsByTagName('img');
+        var box = document.getElementById('box');
+        var boxWidth = box.clientWidth;
+        var boxHeight = box.clientHeight;
+        var scal = boxWidth / boxHeight;
+
+        var len = imgList.length;
+        for(var i=0; i < len; i++){
+            var img = new Image();
+            img.src = imgList[i].src;
+            (function (obj, j) {
+                obj.onload = function(){
+                    if(obj.width >= boxWidth && obj.width/obj.height >= scal){
+                        imgList[j].style.width = "100%";
+                    }
+                    if(obj.height >= boxHeight && obj.width/obj.height <= scal){
+                        imgList[j].style.height = "100%";
+                    }
+                }
+            })(img, i)
+        }
+    </script>
+</body>
+</html>
+	

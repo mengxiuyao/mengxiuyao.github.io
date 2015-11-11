@@ -1,0 +1,138 @@
+	<div id="main" ng-controller="PlayCtrl">
+		<div class="banner home-bg">
+			<div class="player-wrapper">
+				<div id="player">
+					<div class="album-img">
+						<img src="images/album.jpg" alt="">
+					</div>
+					<div class="album-info">
+						<p class="music-name">等不到的爱</p>
+						<p class="music-singer">文章</p>
+						<p class="album-name">《裸婚时代》电视原声带</p>
+					</div>
+					<div class="play-siderbar">
+						<ul class="up-func-btn">
+							<li class="comment-btn"></li>
+							<li class="love-btn"></li>
+							<li class="empty-btn"></li>
+							<li class="skip-btn" ng-click="nextSong()"></li>
+						</ul>
+						<ul class="bot-func-btn">
+							<li class="pause-btn" ng-class="{'play-btn':musicPlay.state}" ng-click="playMusic()"></li>
+							<li class="ctrl-btn">
+								<a ng-class="{sound:!sound}" ng-click="silent()"></a>
+								<input id="voice" type="range" ng-change="voice(number)" ng-model="number" />
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="channel">
+			<p class="channel-head">
+				<span class="channel-logo"></span>
+				<span class="channel-title"></span>
+			</p>
+			<ul class="channel-list">
+				<li class="channel-list-l">
+					<a href="#" class="tip-mask children"></a>
+					<span class="channel-msg">
+						<p class="channel-name">儿歌兆赫</p>
+						<p class="channel-count">
+							<span>共</span>
+							<span>6789</span>
+							<span>首歌</span>
+						</p>
+					</span>
+				</li>
+				<li class="channel-list-l">
+					<a href="#" class="tip-mask qingxin"></a>
+					<span class="channel-msg">
+						<p class="channel-name">小清新兆赫</p>
+						<p class="channel-count">
+							<span>共</span>
+							<span>6789</span>
+							<span>首歌</span>
+						</p>
+					</span>
+				</li>
+				<li class="channel-list-l">
+					<a href="#" class="tip-mask classic"></a>
+					<span class="channel-msg">
+						<p class="channel-name">经典怀旧兆赫</p>
+						<p class="channel-count">
+							<span>共</span>
+							<span>6789</span>
+							<span>首歌</span>
+						</p>
+					</span>
+				</li>
+				<li class="channel-list-l">
+					<a href="#" class="tip-mask huayu"></a>
+					<span class="channel-msg">
+						<p class="channel-name">流行华语兆赫</p>
+						<p class="channel-count">
+							<span>共</span>
+							<span>6789</span>
+							<span>首歌</span>
+						</p>
+					</span>
+				</li>
+				<li class="channel-list-l">
+					<a href="#" class="tip-mask oumei"></a>
+					<span class="channel-msg">
+						<p class="channel-name">欧美兆赫</p>
+						<p class="channel-count">
+							<span>共</span>
+							<span>6789</span>
+							<span>首歌</span>
+						</p>
+					</span>
+				</li>
+				<li class="channel-list-l">
+					<a href="#" class="tip-mask yuansheng"></a>
+					<span class="channel-msg">
+						<p class="channel-name">电影原声兆赫</p>
+						<p class="channel-count">
+							<span>共</span>
+							<span>6789</span>
+							<span>首歌</span>
+						</p>
+					</span>
+				</li>
+				<li class="channel-list-l">
+					<a href="#" class="tip-mask yueyu"></a>
+					<span class="channel-msg">
+						<p class="channel-name">流行粤语兆赫</p>
+						<p class="channel-count">
+							<span>共</span>
+							<span>6789</span>
+							<span>首歌</span>
+						</p>
+					</span>
+				</li>
+				<li class="channel-list-l">
+					<a href="#" class="tip-mask riyu"></a>
+					<span class="channel-msg">
+						<p class="channel-name">流行日语兆赫</p>
+						<p class="channel-count">
+							<span>共</span>
+							<span>6789</span>
+							<span>首歌</span>
+						</p>
+					</span>
+				</li>
+				<li class="channel-list-l">
+					<a href="#" class="tip-mask hanyu"></a>
+					<span class="channel-msg">
+						<p class="channel-name">流行韩语兆赫</p>
+						<p class="channel-count">
+							<span>共</span>
+							<span>6789</span>
+							<span>首歌</span>
+						</p>
+					</span>
+				</li>
+			</ul>
+		</div>
+	</div>

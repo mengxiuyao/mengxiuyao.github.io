@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="chrome=1"/>
+
+        <title>NATURETOUR</title>
+
+        <meta name="HandheldFriendly" content="True"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    </head>
+    <body>
+        <div class="contenter">
+
+            <!-- 头部 -->
+            <header class="head">
+                <img class="logo"src="imgs/logo.jpg" height="77">
+                <div class="head_right">
+                    <div class="welcome">For Frienfy,expert advice call</div>
+                    <div class="tel"><b>12(0) 1234 567890</b></div>
+                    <ul class="small_nav">
+                        <li><a href="#">HOME</a></li>
+                        <li><a href="#">HOW TO BOOK</a></li>
+                        <li><a href="#">VISIT US</a></li>
+                        <li><a href="#">CONTACT US</a></li>
+                    </ul>
+                </div>
+            </header>
+
+            <!-- 导航 -->
+            <div class="nav">
+                <ul>
+                    <li><a href="#">DESTINATIONS</a></li>
+                    <li><a href="#">SPECIES</a></li>
+                    <li><a href="#">TOUR TYPES</a></li>
+                    <li><a href="#">TOUR LEADERS</a></li>
+                    <li><a href="#">LATE AVAILABILITY</a></li>
+                    <li><a href="#">LATEST NEWS</a></li>
+                    <li><a href="#">ABOUT US</a></li>
+                </ul>
+            </div>
+            <a  class="nav_title" href="#">Home</a>
+
+            <!-- 主体 -->
+            <main class="main">
+                <div class="content_left">
+                    <div class="slider">
+                        <img id="screen" class="slider_screen" src="imgs/2.jpg" height="300" width="587">
+                    </div>
+                    <div class="slider_desc">
+                        <div class="desc_content">
+                            <div class="small_title">
+                                Our
+                            </div>
+                            <div class="big_title">
+                                New Tours
+                            </div>
+                            <div class="desc_detail ">
+                                At Naturetour we are constantly adding to and improving our portfolio of wildlife holidays to provide you with an even greater choice of wildlife viewing experiences.
+                            </div>
+                            <div class="desc_next">
+                                View new tours...
+                            </div>
+                            <button id="picture_1" class="slider_next" onclick="slider(1)">
+                                <b>1</b>
+                            </button>
+                            <button id="picture_2" class="slider_next" onclick="slider(2)">
+                                <b>2</b>
+                            </button>
+                            <button id="picture_3" class="slider_next" onclick="slider(3)">
+                                <b>3</b>
+                            </button>
+                            <button id="picture_4" class="slider_next" onclick="slider(4)">
+                                <b>4</b>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="main_desc">
+                        <div class="main_title">
+                            NATURTOUR WILD LIFE HOLIDA
+                        </div>
+                        <div class="main_detail">
+                            A selection of worldwide bird watching, wild flower and natural history holidays (including wildlife tours, treks and cruises), all led by expert
+                            <a href="#">naturalist guides.</a>
+                        </div>
+                    </div>
+                    <img class="person"
+                    src="imgs/person.jpg" height="164" width="210" >
+                    <div class="category_menu ">
+                        <ul>
+                            <li id="by_desc" onclick="active_by_desc()"><b>By Destination</b></li>
+                            <li id="by_spec" class="category_li_center" onclick="active_by_spec()"><b>By Species</b></li>
+                            <li id="by_tour" onclick="active_by_tour()"><b>By Tour Type</b></li>
+                        </ul>
+                    </div>
+                    <div class="tour_card">
+                        <img src="imgs/2.jpg" class="card_picture">
+                        <div class="card_title">
+                            <b>Africa Holidays</b>
+                        </div>
+                        <div class="card_detail">
+                            Few wildlife enthusiasts can resist Africa. Its exceptional abundance and variety of wild animals make it one of the world’s top wildlife holiday destinations.
+                        </div>
+                    </div>
+                    <div class="tour_card card_space">
+                        <img src="imgs/1.jpg" class="card_picture">
+                        <div class="card_title">
+                            <b>Americas Holidays</b>
+                        </div>
+                        <div class="card_detail">
+                            North, South and Central America are home to an incredible diversity of habitats and species, providing opportunities for wildlife holidays to suit all tastes.
+                        </div>
+                    </div>
+                    <div class="tour_card">
+                        <img src="imgs/3.jpg" class="card_picture">
+                        <div class="card_title">
+                            <b>Antarctica Holidays</b>
+                        </div>
+                        <div class="card_detail">
+                            The ‘Great White Continent’ is perhaps the last true wilderness left on earth and ultimate wildlife holiday destination.
+                        </div>
+                    </div>
+                    <div class="tour_card">
+                        <img src="imgs/4.jpg" class="card_picture">
+                        <div class="card_title">
+                            <b>Asia Holidays</b>
+                        </div>
+                        <div class="card_detail">
+                            Choose a Naturetour wildlife holiday to Asia and benefit from our experience of over 20 years, and amazing network of local contacts, on this incredibly diverse continent.
+                        </div>
+                    </div>
+                    <div class="tour_card card_space">
+                        <img src="imgs/2.jpg" class="card_picture">
+                        <div class="card_title">
+                            <b>Australasia Holidays</b>
+                        </div>
+                        <div class="card_detail">
+                            Australia and New Zealand offer extraordinary wildlife in safe, peaceful surroundings. Our tours focus on this continent's unique flora and fauna.
+                        </div>
+                    </div>
+                    <div class="tour_card">
+                        <img src="imgs/3.jpg" class="card_picture">
+                        <div class="card_title">
+                            <b>Europe Holidays</b>
+                        </div>
+                        <div class="card_detail">
+                            Naturetour wildlife holidays in Europe focus on the outstanding wildlife habitats and species that can be found in the region.
+                        </div>
+                    </div>
+                </div>
+                <div class="content_right">
+                    <div class="content_right_padding">
+                        <div class="input_title">HOLIDAY SEARCH</div>
+                        <div class="input_title">Start your holiday search here:</div>
+                        <select class="input_menu" type="text">
+                            <option value="selecd">Slect Region</option>
+                            <option value="1">选项一</option>
+                            <option value="2">选项二</option>
+                            <option value="3">选项三</option>
+                        </select>
+                        <select class="input_menu" type="text">
+                            <option value="selecd">Slect Category</option>
+                            <option value="1">选项一</option>
+                            <option value="2">选项二</option>
+                            <option value="3">选项三</option>
+                        </select>
+                        <select class="input_menu" type="text">
+                            <option value="selecd">Slect Date</option>
+                            <option value="1">选项一</option>
+                            <option value="2">选项二</option>
+                            <option value="3">选项三</option>
+                        </select>
+                        <select class="input_menu" type="text">
+                            <option value="selecd">Slect Price</option>
+                            <option value="1">选项一</option>
+                            <option value="2">选项二</option>
+                            <option value="3">选项三</option>
+                        </select>
+                        <button class="input_button">SEARCH HOLIDAYS</button>
+                        <div class="input_title">QUICK SEARCH</div>
+                        <div class="input_title">Enter a country or tour code:</div>
+                        <input type="text" class="input_menu search_input" value="Country/Code" onclick="value=''">
+                        <button class="search_button" name="Select">SEARCH</button>
+                    </div>
+                    <hr class="hr_color">
+                    <div class="content_right_padding">
+                        <div class="input_title">QUICK SEARCH</div>
+                        <div class="input_title">Enter a country or tour code:</div>
+                        <input type="text" class="input_menu search_input email_input" value="Enter Email" onclick="value=''">
+                        <input type="text" class="input_menu search_input" value="Enter Name" onclick="value=''">
+                        <button class="search_button">SING UP</button>
+                    </div>
+                    <hr class="hr_color">
+                    <div class="content_right_padding">
+                        <div class="input_title desc_cate">
+                            <a href="#">LATEST NEWS</a>
+                        </div>
+                        <div class="desc_text">
+                            <a href="#">
+                                <div class="input_title">
+                                    <b>Watch Brown Bears in Swed 11/05/2010</b>
+                                </div>
+                                <div class="input_title detil_text">
+                                    Experience the forest at night and watch Brown Bears – join one of our short breaks i...
+                                </div>
+                            </a>
+                        </div>
+                        <div class="desc_text">
+                            <a href="#">
+                                <div class="input_title">
+                                    <b>Watch Brown Bears in Swed 11/05/2010</b>
+                                </div>
+                                <div class="input_title detil_text">
+                                    Experience the forest at night and watch Brown Bears – join one of our short breaks i...
+                                </div>
+                            </a>
+                        </div>
+                        <div class="desc_text">
+                            <a href="#">
+                                <div class="input_title">
+                                    <b>Watch Brown Bears in Swed 11/05/2010</b>
+                                </div>
+                                <div class="input_title detil_text">
+                                    Experience the forest at night and watch Brown Bears – join one of our short breaks i...
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <div class="main">
+                <div class="bottom_title">
+                    <i>Naturetour has 25 years experience in operating wildlife holidays.  Contact Us for friendly traval advice</i>
+                </div>
+                <div class="bottom_beside">
+                    <div class="input_title bottom_con_title"><b>FOLLOW US ON TWITTER</b></div>
+                    <div class="input_title content_text">&nbsp&nbsp * 4 days ago The new website is now live. We hope you enjoy it and any feedback is welcome.</div>
+                    <button class="bottom_button">
+                        JOIN US IN FACEBOOK
+                    </button>
+                </div>
+                <div class="bottom_center">
+                    <div class="input_title bottom_con_title"><b>QUICK LINKS</b></div>
+                    <div class="input_title ">
+                        <div class="content_ul">
+                            <ul >
+                                <li><a href="#">Holidays by destination</a></li>
+                                <li><a href="#">Holidays by species</a></li>
+                                <li><a href="#">Holidays by tour type</a></li>
+                                <li><a href="#">Late availability</a></li>
+                                <li><a href="#">Tour leaders</a></li>
+                            </ul>
+                        </div>
+                        <div class="content_ul">
+                            <ul >
+                                <li><a href="#">How to book</a></li>
+                                <li><a href="#">FAQs</a></li>
+                                <li><a href="#">Visit Us</a></li>
+                                <li><a href="#">Term & conditions</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                        <div class="content_ul">
+                            <ul >
+                                <li><a href="#">Laterst news</a></li>
+                                <li><a href="#">Resquest a brochure</a></li>
+                                <li><a href="#">Subscribe to newsletter</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom_beside bottom_right">
+                    <div class="input_title bottom_con_title"><b>CONTACT US</b></div>
+                        <div class="input_title content_text">
+                            <div class="content_ul">
+                                <ul >
+                                    <li><b>Tel: </b>12345 67890</li>
+                                    <li><b>Email: </b>info@naturetour.com</li>
+                                    <li>Naturetour,Your City.</li>
+                                    <li>Your state,123 456 789</li>
+                                </ul>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <footer class="publish_info">
+                &copy; <b>Naturetour 2010</b><br>
+                <small class="publish_color">No portion of this website may be reproduced without the prior written consent of Naturetour. All rights reserved.</small>
+            </footer>
+        </div>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
